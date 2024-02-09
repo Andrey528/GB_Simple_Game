@@ -1,0 +1,67 @@
+$widthMops: 300px;
+$countMops: 4;
+
+@for $i from 1 through $countMops {
+    @keyframes mops-run-#{$i} {
+        0% {
+            left: -$widthMops;
+            top: random(90)+vh;
+        }
+        50% {
+            left: random(60)+vw;
+            top: random(90)+vh;
+        }
+        100% {
+            left: 100vw;
+            top: random(90)+vh;
+        }
+    }
+}
+
+.body {
+    counter-reset: count;
+    height: 100vh;
+    margin: 0;
+    background: no-repeat center url("img/background.jpg");
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.mops-check {
+    position: absolute;
+    visibility: hidden;
+    left: -9999999px;
+
+    &:checked {
+        counter-increment: count;
+    }
+
+    &:checked ~ label {
+        display: none;
+    }
+}
+
+.counter-info {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    &::before {
+        content: counter(count);
+    }
+}
+
+.mops {
+    position: absolute;
+
+    &__img {
+        width: $widthMops;
+    }
+
+    @for $i from 1 through $countMops {
+        &_#{$i} {
+            animation: mops-run-#{$i} 5s ease-in #{$i}s both;
+        }
+    }
+}

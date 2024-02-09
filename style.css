@@ -1,0 +1,105 @@
+@keyframes mops-run-1 {
+  0% {
+    left: -300px;
+    top: 31vh;
+  }
+  50% {
+    left: 30vw;
+    top: 77vh;
+  }
+  100% {
+    left: 100vw;
+    top: 85vh;
+  }
+}
+@keyframes mops-run-2 {
+  0% {
+    left: -300px;
+    top: 55vh;
+  }
+  50% {
+    left: 59vw;
+    top: 39vh;
+  }
+  100% {
+    left: 100vw;
+    top: 75vh;
+  }
+}
+@keyframes mops-run-3 {
+  0% {
+    left: -300px;
+    top: 52vh;
+  }
+  50% {
+    left: 35vw;
+    top: 62vh;
+  }
+  100% {
+    left: 100vw;
+    top: 44vh;
+  }
+}
+@keyframes mops-run-4 {
+  0% {
+    left: -300px;
+    top: 22vh;
+  }
+  50% {
+    left: 33vw;
+    top: 4vh;
+  }
+  100% {
+    left: 100vw;
+    top: 4vh;
+  }
+}
+.body {
+  counter-reset: count;
+  height: 100vh;
+  margin: 0;
+  background: no-repeat center url("img/background.jpg");
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.mops-check {
+  position: absolute;
+  visibility: hidden;
+  left: -9999999px;
+}
+.mops-check:checked {
+  counter-increment: count;
+}
+.mops-check:checked ~ label {
+  display: none;
+}
+
+.counter-info {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+.counter-info::before {
+  content: counter(count);
+}
+
+.mops {
+  position: absolute;
+}
+.mops__img {
+  width: 300px;
+}
+.mops_1 {
+  animation: mops-run-1 5s ease-in 1s both;
+}
+.mops_2 {
+  animation: mops-run-2 5s ease-in 2s both;
+}
+.mops_3 {
+  animation: mops-run-3 5s ease-in 3s both;
+}
+.mops_4 {
+  animation: mops-run-4 5s ease-in 4s both;
+}/*# sourceMappingURL=style.css.map */
